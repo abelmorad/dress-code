@@ -56,7 +56,7 @@ function Navbar() {
           <FavoriteBorderOutlinedIcon />
           <div className="flex">
             <ShoppingCartOutlinedIcon />
-            <span className="flex text-xs bg-blue-500 h-5 w-5 items-center place-content-center rounded-full absolute ml-3.5 top-0 mt-3 text-white">
+            <span className="flex text-sm bg-blue-500 h-5 w-5 items-center place-content-center rounded-full absolute ml-3.5 top-0 mt-2 text-white font-semibold">
               0
             </span>
           </div>
