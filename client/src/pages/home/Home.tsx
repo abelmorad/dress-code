@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import 'swiper/css/effect-fade';
 
 import FeaturedSection from "../../components/Sections/FeaturedSection";
 
@@ -18,10 +19,11 @@ function Home() {
 
     return (
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Pagination, EffectFade]}
         slidesPerView={1}
         autoplay
         pagination
+        effect={"fade"}
       >
         {data.map((data) => (
           <SwiperSlide className="flex place-content-center">
@@ -37,7 +39,10 @@ function Home() {
         <HeroSlider />
       </section>
       <section className="flex flex-col mb-20">
-        <FeaturedSection />
+        <FeaturedSection sectionTitle="Featured Products" />
+      </section>
+      <section className="flex flex-col mb-20">
+        <FeaturedSection sectionTitle="Trending Products" />
       </section>
     </section>
   );
