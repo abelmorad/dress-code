@@ -3,7 +3,7 @@ function FeaturedCard() {
     {
       id: 1,
       img: "https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Striped Shirt",
+      title: "Women's Striped Shirt",
       isNew: true,
       oldPrice: "0",
       currentPrice: 15,
@@ -11,7 +11,7 @@ function FeaturedCard() {
     {
       id: 2,
       img: "https://images.pexels.com/photos/1113554/pexels-photo-1113554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Striped Pants",
+      title: "Women's Striped Pants",
       isNew: true,
       oldPrice: "0",
       currentPrice: 30,
@@ -37,19 +37,33 @@ function FeaturedCard() {
   return (
     <>
       {cardData.map((data) => (
-        <div key={data.id} className="flex flex-col justify-between border border-gray-400 rounded-xl" style={{height: "580px", width: "300px"}}>
-          <img src={data.img} alt={data.title} className="rounded-t-lg" style={{height: "444px", width: "auto"}}/>
-          <p className="absolute bg-white px-2 py-1 text-green-600 font-medium ml-1 mt-1 rounded-md" style={data.isNew ? { display: "flex" } : { display: "none" }}>
+        <div
+          key={data.id}
+          className="flex flex-col border border-gray-400 rounded-xl"
+          style={{ height: "580px", width: "300px" }}
+        >
+          <img
+            src={data.img}
+            alt={data.title}
+            className="rounded-t-lg"
+            style={{ height: "444px", width: "auto" }}
+          />
+          <p
+            className="absolute bg-white px-2 py-1 text-green-600 font-medium ml-1 mt-1 rounded-md"
+            style={data.isNew ? { display: "flex" } : { display: "none" }}
+          >
             New Season
           </p>
           <div className="flex flex-col p-3">
-              <p className="font-semibold text-xl">{data.title}</p>
+            <p className="font-semibold text-xl mt-2">{data.title}</p>
+            <div className="flex flex-col">
               <p className="text-gray-500 line-through">
                 <span>USD</span> {data.oldPrice}
               </p>
               <p className="font-semibold">
                 <span>USD</span> {data.currentPrice}
               </p>
+            </div>
           </div>
         </div>
       ))}
