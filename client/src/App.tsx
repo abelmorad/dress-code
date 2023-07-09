@@ -6,8 +6,8 @@ import Product from "./pages/product/Product";
 import Products from "./pages/products/Products";
 
 // components imports
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/Sections/Navbar";
+import Footer from "./components/Sections/Footer"
 
 function Layout() {
   return (

@@ -1,4 +1,4 @@
-import FeaturedCard from "./FeaturedCard";
+import FeaturedCard from "../Cards/FeaturedCard";
 
 function FeaturedSection() {
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import logo from "../../public/icon/dresscode.ico";
-import usEng from "../../public/icon/united-states-of-america.png";
+import logo from "../../../public/icon/dresscode.ico";
+import usEng from "../../../public/icon/united-states-of-america.png";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";

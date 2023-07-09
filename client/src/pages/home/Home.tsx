@@ -4,7 +4,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import FeaturedSection from "../../components/FeaturedSection";
+import FeaturedSection from "../../components/Sections/FeaturedSection";
 
 function Home() {
   function HeroSlider() {

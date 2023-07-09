@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import logo from "../../public/icon/dresscode.ico";
-import payment from "../../public/icon/payment.png";
+import logo from "../../../public/icon/dresscode.ico"
+import payment from "../../../public/icon/payment.png"
 
 function Footer() {
   return (
