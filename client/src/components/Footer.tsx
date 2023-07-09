@@ -117,12 +117,12 @@ function Footer() {
               <h1>CODE</h1>
             </div>
           </Link>
-          <p className="text-xs text-gray-500 text-sm">
+          <p className="text-xs text-gray-500">
             &copy; Copyright 2023 All Rights Reserved
           </p>
         </div>
         <div className="items-center">
-          <img className="h-10 w-auto" src={payment} alt="payment options" />
+          <img className="h-12 w-auto" src={payment} alt="payment options" />
         </div>
       </section>
     </footer>
