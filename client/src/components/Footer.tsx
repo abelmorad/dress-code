@@ -9,35 +9,36 @@ function Footer() {
         <div className="flex flex-col mr-40">
           <h2 className="mb-2">Categories</h2>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
+
           "
             to="/"
           >
             Women
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
             Men
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
             Shoes
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
             Accessories
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
@@ -47,35 +48,35 @@ function Footer() {
         <div className="flex flex-col mr-40">
           <h2 className="mb-2">Links</h2>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
             FAQ
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
             Pages
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
             Stores
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
             Compare
           </Link>
           <Link
-            className="text-gray-500
+            className="text-gray-500 text-sm
           "
             to="/"
           >
@@ -86,7 +87,7 @@ function Footer() {
           <div className="flex flex-col text-justify">
             <h2 className="mb-2">About</h2>
             <p
-              className="text-gray-500
+              className="text-gray-500 text-sm
             "
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ut
@@ -97,7 +98,7 @@ function Footer() {
           <div className="flex flex-col text-justify">
             <h2 className="mb-2">Contact</h2>
             <p
-              className="text-gray-500
+              className="text-gray-500 text-sm
             "
             >
               Lorem, addipsum dolor sit amet consectetur adipisicing elit. Nisi,
@@ -116,7 +117,7 @@ function Footer() {
               <h1>CODE</h1>
             </div>
           </Link>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500 text-sm">
             &copy; Copyright 2023 All Rights Reserved
           </p>
         </div>
