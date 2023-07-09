@@ -82,30 +82,32 @@ function Footer() {
             Cookies
           </Link>
         </div>
-        <div className="flex flex-col pr-20 text-justify">
-          <h2 className="mb-2">About</h2>
-          <p
-            className="text-gray-500
-          "
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ut
-            eum saepe fugit quod voluptate itaque iste eaque beatae enim maiores
-            rerum dolor cupiditate labore vitae, perspiciatis quasi. Ullam, at?
-          </p>
-        </div>
-        <div className="flex flex-col">
-          <h2 className="mb-2">Contact</h2>
-          <p
-            className="text-gray-500
-          "
-          >
-            Lorem, addipsum dolor sit amet consectetur adipisicing elit. Nisi,
-            recusandae mollitia. Nobis porro eum quo aspernatur aut, pariatur
-            molestiae illum.
-          </p>
+        <div className="grid grid-cols-2 gap-10">
+          <div className="flex flex-col text-justify">
+            <h2 className="mb-2">About</h2>
+            <p
+              className="text-gray-500
+            "
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ut
+              eum saepe fugit quod voluptate itaque iste eaque beatae enim maiores
+              rerum dolor cupiditate labore vitae, perspiciatis quasi. Ullam, at?
+            </p>
+          </div>
+          <div className="flex flex-col text-justify">
+            <h2 className="mb-2">Contact</h2>
+            <p
+              className="text-gray-500
+            "
+            >
+              Lorem, addipsum dolor sit amet consectetur adipisicing elit. Nisi,
+              recusandae mollitia. Nobis porro eum quo aspernatur aut, pariatur
+              molestiae illum.
+            </p>
+          </div>
         </div>
       </section>
-      <section className="flex justify-between py-8">
+      <section className="flex justify-between py-5">
         <div className="flex items-center gap-4">
           <Link to="/">
             <div className="flex justify-center items-center gap-2 cursor-pointer">
