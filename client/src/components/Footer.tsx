@@ -1,8 +1,129 @@
+import { Link } from "react-router-dom";
+import logo from "../../public/icon/dresscode.ico";
+import payment from "../../public/icon/payment.png";
 
 function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <footer className="flex flex-col mx-40">
+      <section className="flex mb-10">
+        <div className="flex flex-col mr-40">
+          <h2 className="mb-2">Categories</h2>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Women
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Men
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Shoes
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Accessories
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            New Arrivals
+          </Link>
+        </div>
+        <div className="flex flex-col mr-40">
+          <h2 className="mb-2">Links</h2>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            FAQ
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Pages
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Stores
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Compare
+          </Link>
+          <Link
+            className="text-gray-500
+          "
+            to="/"
+          >
+            Cookies
+          </Link>
+        </div>
+        <div className="flex flex-col pr-20 text-justify">
+          <h2 className="mb-2">About</h2>
+          <p
+            className="text-gray-500
+          "
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ut
+            eum saepe fugit quod voluptate itaque iste eaque beatae enim maiores
+            rerum dolor cupiditate labore vitae, perspiciatis quasi. Ullam, at?
+          </p>
+        </div>
+        <div className="flex flex-col">
+          <h2 className="mb-2">Contact</h2>
+          <p
+            className="text-gray-500
+          "
+          >
+            Lorem, addipsum dolor sit amet consectetur adipisicing elit. Nisi,
+            recusandae mollitia. Nobis porro eum quo aspernatur aut, pariatur
+            molestiae illum.
+          </p>
+        </div>
+      </section>
+      <section className="flex justify-between py-8">
+        <div className="flex items-center gap-4">
+          <Link to="/">
+            <div className="flex justify-center items-center gap-2 cursor-pointer">
+              <h1>DRESS</h1>
+              <img className="h-8" src={logo} alt="dress code logo" />
+              <h1>CODE</h1>
+            </div>
+          </Link>
+          <p className="text-xs text-gray-500">
+            &copy; Copyright 2023 All Rights Reserved
+          </p>
+        </div>
+        <div className="items-center">
+          <img className="h-10 w-auto" src={payment} alt="payment options" />
+        </div>
+      </section>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;
