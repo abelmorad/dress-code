@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function FeaturedCard() {
   const cardData = [
     {
@@ -37,35 +39,37 @@ function FeaturedCard() {
   return (
     <>
       {cardData.map((data) => (
-        <div
-          key={data.id}
-          className="flex flex-col outline-1 outline outline-gray-400 rounded-xl"
-          style={{ height: "580px", width: "300px" }}
-        >
-          <img
-            src={data.img}
-            alt={data.title}
-            className="rounded-t-xl"
-            style={{ height: "444px", width: "auto" }}
-          />
-          <p
-            className="absolute bg-white px-2 py-1 text-green-600 font-medium ml-1 mt-1 rounded-md"
-            style={data.isNew ? { display: "flex" } : { display: "none" }}
+        <Link to={`/product/${data.id}`}>
+          <div
+            key={data.id}
+            className="flex flex-col outline-1 outline outline-gray-400 rounded-xl"
+            style={{ height: "580px", width: "300px" }}
           >
-            New Season
-          </p>
-          <div className="flex flex-col p-3">
-            <p className="font-semibold text-xl mt-2">{data.title}</p>
-            <div className="flex flex-col">
-              <p className="text-gray-500 line-through">
-                <span>USD</span> {data.oldPrice}
-              </p>
-              <p className="font-semibold">
-                <span>USD</span> {data.currentPrice}
-              </p>
+            <img
+              src={data.img}
+              alt={data.title}
+              className="rounded-t-xl"
+              style={{ height: "444px", width: "auto" }}
+            />
+            <p
+              className="absolute bg-white px-2 py-1 text-red-600 font-medium ml-1 mt-1 rounded-md"
+              style={data.isNew ? { display: "flex" } : { display: "none" }}
+            >
+              New Season
+            </p>
+            <div className="flex flex-col p-3">
+              <p className="font-semibold text-xl mt-2">{data.title}</p>
+              <div className="flex flex-col">
+                <p className="text-gray-500 line-through">
+                  <span>USD</span> {data.oldPrice}
+                </p>
+                <p className="font-semibold">
+                  <span>USD</span> {data.currentPrice}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </>
   );
