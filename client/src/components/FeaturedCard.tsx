@@ -39,13 +39,13 @@ function FeaturedCard() {
       {cardData.map((data) => (
         <div
           key={data.id}
-          className="flex flex-col border border-gray-400 rounded-xl"
+          className="flex flex-col outline-1 outline outline-gray-400 rounded-xl"
           style={{ height: "580px", width: "300px" }}
         >
           <img
             src={data.img}
             alt={data.title}
-            className="rounded-t-lg"
+            className="rounded-t-xl"
             style={{ height: "444px", width: "auto" }}
           />
           <p
