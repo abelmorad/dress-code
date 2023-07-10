@@ -52,8 +52,8 @@ function FeaturedCard() {
               style={{ height: "444px", width: "auto" }}
             />
             <p
-              className="absolute bg-white px-2 py-1 text-red-600 font-medium ml-1 mt-1 rounded-md"
-              style={data.isNew ? { display: "flex" } : { display: "none" }}
+              className="absolute px-2 py-2 text-4xl text-red-500 font-semibold italic"
+              style={data.isNew ? { display: "flex", textShadow: "white 5px 5px" } : { display: "none" }}
             >
               New Season
             </p>
@@ -61,10 +61,10 @@ function FeaturedCard() {
               <p className="font-semibold text-xl mt-2">{data.title}</p>
               <div className="flex flex-col">
                 <p className="text-gray-500 line-through">
-                  <span>USD</span> {data.oldPrice}
+                  {data.oldPrice} <span>USD</span>
                 </p>
                 <p className="font-semibold">
-                  <span>USD</span> {data.currentPrice}
+                  {data.currentPrice} <span>USD</span>
                 </p>
               </div>
             </div>
