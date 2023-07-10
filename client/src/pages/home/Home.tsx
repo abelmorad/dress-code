@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import 'swiper/css/effect-fade';
 
 import FeaturedSection from "../../components/Sections/FeaturedSection";
+import CategorySection from "../../components/Sections/CategorySection";
 
 function Home() {
   function HeroSlider() {
@@ -40,6 +41,9 @@ function Home() {
       </section>
       <section className="flex flex-col mb-20">
         <FeaturedSection sectionTitle="Featured Products" />
+      </section>
+      <section className="flex flex-col mb-20">
+        <CategorySection />
       </section>
       <section className="flex flex-col mb-20">
         <FeaturedSection sectionTitle="Trending Products" />
