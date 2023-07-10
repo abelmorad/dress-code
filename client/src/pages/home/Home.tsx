@@ -28,7 +28,7 @@ function Home() {
       >
         {data.map((data) => (
           <SwiperSlide className="flex place-content-center">
-            <img src={data} alt="mens" />
+            <img className="w-screen h-screen object-cover" src={data} alt="mens" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -36,7 +36,7 @@ function Home() {
   }
   return (
     <section className="flex flex-col">
-      <section className="flex pt-16 mx-10 mb-20">
+      <section className="flex mb-20">
         <HeroSlider />
       </section>
       <section className="flex flex-col mb-20">
