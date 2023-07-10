@@ -31,7 +31,7 @@ function CategorySection() {
         <p className="font-semibold text-white text-6xl absolute mt-60 ml-24">Women</p>
       </Link>
       <Link to="/" className="flex area-shoes">
-      <img style={{height: "310px", width:"620px", objectFit: "cover"}} src={shoes} alt="shoes" />
+      <img style={{height: "310px", width:"640px", objectFit: "cover"}} src={shoes} alt="shoes" />
         <p className="font-semibold text-white text-6xl absolute mt-2 ml-2">Shoes</p>
       </Link>
     </section>
