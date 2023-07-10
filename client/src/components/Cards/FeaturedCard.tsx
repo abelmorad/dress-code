@@ -42,13 +42,12 @@ function FeaturedCard() {
         <Link to={`/product/${data.id}`}>
           <div
             key={data.id}
-            className="flex flex-col outline-1 outline outline-gray-400 rounded-md"
+            className="flex flex-col outline-1 outline outline-gray-400"
             style={{ height: "580px", width: "300px" }}
           >
             <img
               src={data.img}
               alt={data.title}
-              className="rounded-t-md"
               style={{ height: "444px", width: "auto" }}
             />
             <p
