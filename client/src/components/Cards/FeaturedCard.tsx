@@ -51,7 +51,7 @@ function FeaturedCard() {
               style={{ height: "444px", width: "auto" }}
             />
             <p
-              className="absolute px-2 py-2 text-4xl text-red-500 font-semibold italic"
+              className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
               style={data.isNew ? { display: "flex", textShadow: "white 5px 5px" } : { display: "none" }}
             >
               New Season
