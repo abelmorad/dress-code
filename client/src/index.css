@@ -16,3 +16,31 @@
   * {
     font-family: 'Roboto', sans-serif;
   }
+
+  .area-sale {
+    grid-area: sale;
+  }
+  .area-newseason {
+    grid-area: newseason;
+  }
+  .area-men {
+    grid-area: men;
+  }
+  .area-accessories {
+    grid-area: accessories;
+  }
+  .area-women {
+    grid-area: women;
+  }
+  .area-shoes {
+    grid-area: shoes;
+  }
+  .category-section {
+    display: grid;
+    grid-template-columns: repeat(4,310px);
+    grid-template-rows: 310px 310px;
+    grid-template-areas: 
+      "sale newseason men accessories"
+      "women newseason shoes shoes";
+      gap: 20px;
+  }
