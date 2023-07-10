@@ -10,7 +10,7 @@ import accessories from "../../../public/category/accessories.jpg"
 function CategorySection() {
   return (
     <section className="category-section place-content-center">
-      <Link to="/" className="area-sale flex">
+      <Link to="/products/1" className="area-sale flex">
         <img src={sale} alt="sale" />
         <p className="font-semibold text-white text-6xl absolute mt-60 ml-2">Sale</p>
       </Link>
