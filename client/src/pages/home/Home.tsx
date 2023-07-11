@@ -39,13 +39,13 @@ function Home() {
       <section className="flex mb-20">
         <HeroSlider />
       </section>
-      <section className="flex flex-col mb-20">
+      <section className="flex flex-col mb-20 mx-36">
         <FeaturedSection sectionTitle="Featured Products" />
       </section>
       <section className="flex flex-col mb-20">
         <CategorySection />
       </section>
-      <section className="flex flex-col mb-20">
+      <section className="flex flex-col mb-20 mx-36">
         <FeaturedSection sectionTitle="Trending Products" />
       </section>
     </section>

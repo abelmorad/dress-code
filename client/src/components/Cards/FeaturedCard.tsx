@@ -42,17 +42,16 @@ function FeaturedCard() {
         <Link to={`/product/${data.id}`}>
           <div
             key={data.id}
-            className="flex flex-col outline-1 outline outline-gray-400"
-            style={{ height: "580px", width: "300px" }}
+            className="flex flex-col h-full outline-1 outline outline-gray-400"
           >
-            <img
-              src={data.img}
-              alt={data.title}
-              style={{ height: "444px", width: "auto" }}
-            />
+            <img className="w-screen object-cover" src={data.img} alt={data.title} />
             <p
               className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
-              style={data.isNew ? { display: "flex", textShadow: "white 5px 5px" } : { display: "none" }}
+              style={
+                data.isNew
+                  ? { display: "flex", textShadow: "white 5px 5px" }
+                  : { display: "none" }
+              }
             >
               New Season
             </p>
