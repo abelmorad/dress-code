@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
 import banner from "../../../public/misc/categorybanner.jpg";
-import FeaturedSection from "../../components/Sections/FeaturedSection";
 import { useState } from "react";
+import AllProducts from "./AllProducts";
 
 function Products() {
   const categoryId = useParams().id;
   const [maxPrice, setMaxPrice] = useState(1000);
+  const [sort, setSort] = useState<string>("");
 
-  console.log(categoryId)
 
   return (
-    <section className="grid grid-flow-col py-20 mx-16 gap-36">
-      <div className="flex flex-col">
+    <section className="grid grid-flow-col py-20 mx-16 gap-20">
+      <div className="flex flex-col mr-5 sticky h-max top-20">
         <div className="mb-3">
           <h2 className="mb-3">Product Categories</h2>
           <div className="flex flex-col">
@@ -40,7 +40,7 @@ function Products() {
         <div className="flex flex-col mb-3">
           <h2 className="mb-3">Filter by Price</h2>
           <div className="flex flex-col">
-            <div className="flex gap-2">
+            <div className="flex gap-2 w-48">
               <span>0</span>
               <input
                 type="range"
@@ -56,22 +56,39 @@ function Products() {
           <h2 className="mb-3">Sort By</h2>
           <div className="flex flex-col">
             <div className="flex gap-2">
-              <input type="radio" id="asc" value="asc" name="price" />
+              <input
+                type="radio"
+                id="asc"
+                value="asc"
+                name="price"
+                onChange={() => setSort("asc")}
+              />
               <label htmlFor="asc">Price (Highest First)</label>
             </div>
             <div className="flex gap-2">
-              <input type="radio" id="dsc" value="dsc" name="price" />
-              <label htmlFor="dsc">Price (Lowest First)</label>
+              <input
+                type="radio"
+                id="desc"
+                value="desc"
+                name="price"
+                onChange={() => setSort("desc")}
+              />
+              <label htmlFor="desc">Price (Lowest First)</label>
             </div>
           </div>
         </div>
       </div>
       <div className="flex flex-col">
+      <div className="flex flex-col mb-8">
         <img
           className="h-60 w-screen object-cover"
           src={banner}
           alt="category banner"
         />
+      </div>
+      <div className="grid grid-cols-4 place-content-center gap-8">
+        <AllProducts />
+      </div>
       </div>
     </section>
   );
