@@ -44,7 +44,11 @@ function FeaturedCard() {
             key={data.id}
             className="flex flex-col h-full outline-1 outline outline-gray-400"
           >
-            <img className="w-screen object-cover" src={data.img} alt={data.title} />
+            <img
+              className="w-screen object-cover"
+              src={data.img}
+              alt={data.title}
+            />
             <p
               className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
               style={
