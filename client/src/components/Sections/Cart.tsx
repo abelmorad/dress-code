@@ -3,7 +3,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 
 function Cart() {
   return (
-    <section className="flex flex-col absolute bg-white pt-8 pb-3  right-0 pl-5 pr-12 -z-10 w-1/3 shadow-2xl">
+    <section className="flex flex-col absolute bg-white mt-3 pb-3 right-0 pl-5 pr-12 -z-10 w-1/3 shadow-2xl">
       <h1 className="mb-5">Products in your Cart</h1>
       <div className="flex place-content-center items-center">
         <img className="h-36 w-24 object-cover mr-5" src={image} alt="" />
