@@ -44,3 +44,7 @@
       "women newseason shoes shoes";
       gap: 20px;
   }
+
+  .product-section {
+    grid-template-columns: 192px 1fr 1fr;
+  }
