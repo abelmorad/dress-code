@@ -7,8 +7,12 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { useState } from "react";
+
+import Cart from "./Cart";
 
 function Navbar() {
+  const [openCart, setOpenCart] = useState(false);
   return (
     <nav className="grid grid-cols-3 px-10 py-3 items-center fixed w-screen bg-white z-10">
       <section className="flex gap-4">
@@ -54,7 +58,7 @@ function Navbar() {
           <SearchOutlinedIcon />
           <PersonOutlineOutlinedIcon />
           <FavoriteBorderOutlinedIcon />
-          <div className="flex">
+          <div className="flex" onClick={() => setOpenCart(!openCart)}>
             <ShoppingCartOutlinedIcon />
             <span className="flex text-sm bg-blue-500 h-5 w-5 items-center place-content-center rounded-full absolute ml-3.5 top-0 mt-2 text-white font-semibold">
               0
@@ -62,6 +66,11 @@ function Navbar() {
           </div>
         </div>
       </section>
+      {openCart && (
+        <section>
+          <Cart />
+        </section>
+      )}
     </nav>
   );
 }
