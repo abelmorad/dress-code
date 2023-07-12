@@ -8,11 +8,13 @@ import Products from "./pages/products/Products";
 // components imports
 import Navbar from "./components/Sections/Navbar";
 import Footer from "./components/Sections/Footer"
+import ScrollToTop from "./components/ScrollToTop";
 
 function Layout() {
   return (
     <>
       <Navbar />
+      <ScrollToTop />
       <Outlet />
       <Footer />
     </>
