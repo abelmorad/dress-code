@@ -53,7 +53,7 @@ function Product() {
           >
             -
           </button>
-          <p className="border-t border-b border-black px-2">{quantity}</p>
+          <p className="flex place-content-center w-10 border-t border-b border-black px-2">{quantity}</p>
           <button
             className="border border-black w-10 px-2"
             onClick={() => setQuantity((prev) => prev + 1)}
