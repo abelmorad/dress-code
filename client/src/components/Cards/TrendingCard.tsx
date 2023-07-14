@@ -26,7 +26,7 @@ function TrendingCard() {
       <>
         {data.map((data) => (
           <Link to={`/product/${data.id}`} key={data.id} type={data.attributes.type}>
-            <div className="flex flex-col h-full outline-1 outline outline-gray-400">
+            <div className="flex flex-col justify-between h-full outline-1 outline outline-gray-400">
               <img className="h-96 w-screen object-cover" src={"http://localhost:1337" + data.attributes.image.data.attributes.url} />
               <p
                 className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
@@ -38,8 +38,8 @@ function TrendingCard() {
               >
                 New Season
               </p>
-              <div className="flex flex-col p-3">
-                <p className="font-semibold text-xl mt-2">
+              <div className="flex flex-col px-3 pt-3">
+                <p className="font-semibold text-xl">
                   {data.attributes.title}
                 </p>
                 <div className="flex flex-col">
@@ -53,9 +53,9 @@ function TrendingCard() {
                   >
                     {data.attributes.oldPrice} USD
                   </p>
-                  <p className="font-semibold">{data.attributes.price} USD</p>
                 </div>
               </div>
+              <p className="font-semibold px-3 pb-3">{data.attributes.price} USD</p>
             </div>
           </Link>
         ))}
