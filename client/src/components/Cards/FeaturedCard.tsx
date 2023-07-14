@@ -27,7 +27,7 @@ function FeaturedCard() {
       {data.map((data) => (
         <Link to={`/product/${data.id}`} key={data.id}>
           <div className="flex flex-col h-full outline-1 outline outline-gray-400">
-            <img className="w-screen object-cover" src={"http://localhost:1337" + data.attributes.image.data.attributes.url} />
+            <img className="h-96 w-screen object-cover" src={"http://localhost:1337" + data.attributes.image.data.attributes.url} />
             <p
               className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
               style={
