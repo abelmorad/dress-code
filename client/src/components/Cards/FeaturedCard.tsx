@@ -8,7 +8,7 @@ function FeaturedCard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:1337/api/products", {
+        const res = await axios.get("http://localhost:1337/api/products?populate=*", {
           headers: {
             Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
           },
@@ -27,7 +27,7 @@ function FeaturedCard() {
       {data.map((data) => (
         <Link to={`/product/${data.id}`} key={data.id}>
           <div className="flex flex-col h-full outline-1 outline outline-gray-400">
-            <img className="w-screen object-cover" />
+            <img className="w-screen object-cover" src={"http://localhost:1337" + data.attributes.image.data.attributes.url} />
             <p
               className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
               style={
