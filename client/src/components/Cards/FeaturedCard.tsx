@@ -1,58 +1,52 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function FeaturedCard() {
-  const cardData = [
-    {
-      id: 1,
-      img: "https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Women's Striped Shirt",
-      isNew: true,
-      oldPrice: "0",
-      currentPrice: 15,
-    },
-    {
-      id: 2,
-      img: "https://images.pexels.com/photos/1113554/pexels-photo-1113554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Women's Striped Pants",
-      isNew: true,
-      oldPrice: "0",
-      currentPrice: 30,
-    },
-    {
-      id: 3,
-      img: "https://images.pexels.com/photos/923711/pexels-photo-923711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Men's Black Leather Jacket",
-      isNew: false,
-      oldPrice: 275,
-      currentPrice: 199,
-    },
-    {
-      id: 4,
-      img: "https://images.pexels.com/photos/952629/pexels-photo-952629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Women's Three Piece Suit Maroon",
-      isNew: false,
-      oldPrice: 525,
-      currentPrice: 399,
-    },
-  ];
+  const [data, setData] = useState<any[]>([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:1337/api/products", {
+  //       headers: {
+  //         Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setData(res.data.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:1337/api/products", {
+          headers: {
+            Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
+          },
+        });
+        setData(res.data.data.slice(0, 4));
+        console.log(res.data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
-      {cardData.map((data) => (
-        <Link to={`/product/${data.id}`}>
-          <div
-            key={data.id}
-            className="flex flex-col h-full outline-1 outline outline-gray-400"
-          >
-            <img
-              className="w-screen object-cover"
-              src={data.img}
-              alt={data.title}
-            />
+      {data.map((data) => (
+        <Link to={`/product/${data.id}`} key={data.id}>
+          <div className="flex flex-col h-full outline-1 outline outline-gray-400">
+            <img className="w-screen object-cover" />
             <p
               className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
               style={
-                data.isNew
+                data.attributes.isNew
                   ? { display: "flex", textShadow: "white 5px 5px" }
                   : { display: "none" }
               }
@@ -60,13 +54,15 @@ function FeaturedCard() {
               New Season
             </p>
             <div className="flex flex-col p-3">
-              <p className="font-semibold text-xl mt-2">{data.title}</p>
+              <p className="font-semibold text-xl mt-2">
+                {data.attributes.title}
+              </p>
               <div className="flex flex-col">
                 <p className="text-gray-500 line-through">
-                  {data.oldPrice} <span>USD</span>
+                  {data.attributes.oldPrice} <span>USD</span>
                 </p>
                 <p className="font-semibold">
-                  {data.currentPrice} <span>USD</span>
+                  {data.attributes.price} <span>USD</span>
                 </p>
               </div>
             </div>
@@ -78,3 +74,37 @@ function FeaturedCard() {
 }
 
 export default FeaturedCard;
+
+{
+  /* <Link to={`/product/${data.data.id}`}>
+          <div
+            key={}
+            className="flex flex-col h-full outline-1 outline outline-gray-400"
+          >
+            <img className="w-screen object-cover" src={} alt={} />
+            <p
+              className="absolute px-2 py-2 text-4xl text-black font-semibold italic"
+              style={
+                data.id.attributes.isNew
+                  ? { display: "flex", textShadow: "white 5px 5px" }
+                  : { display: "none" }
+              }
+            >
+              New Season
+            </p>
+            <div className="flex flex-col p-3">
+              <p className="font-semibold text-xl mt-2">
+                {data.id.attributes.title}
+              </p>
+              <div className="flex flex-col">
+                <p className="text-gray-500 line-through">
+                  {data.oldPrice} <span>USD</span>
+                </p>
+                <p className="font-semibold">
+                  {data.id.attributes.price} <span>USD</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </Link>; */
+}
