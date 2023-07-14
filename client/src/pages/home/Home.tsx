@@ -3,12 +3,14 @@ import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
 
 import FeaturedSection from "../../components/Sections/FeaturedSection";
 import CategorySection from "../../components/Sections/CategorySection";
+import TrendingSection from "../../components/Sections/TrendingSection";
 
 function Home() {
+
   function HeroSlider() {
     const data = [
       "https://burst.shopifycdn.com/photos/man-puts-his-hand-inside-his-jacket.jpg?width=1024&format=pjpg&exif=1&iptc=1",
@@ -28,7 +30,11 @@ function Home() {
       >
         {data.map((data) => (
           <SwiperSlide className="flex place-content-center">
-            <img className="w-screen h-screen object-cover" src={data} alt="mens" />
+            <img
+              className="w-screen h-screen object-cover"
+              src={data}
+              alt="mens"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -40,13 +46,13 @@ function Home() {
         <HeroSlider />
       </section>
       <section className="flex flex-col mb-20 mx-36">
-        <FeaturedSection sectionTitle="Featured Products" />
+        <FeaturedSection/>
       </section>
       <section className="flex flex-col mb-20">
         <CategorySection />
       </section>
       <section className="flex flex-col mb-20 mx-36">
-        <FeaturedSection sectionTitle="Trending Products" />
+        <TrendingSection />
       </section>
     </section>
   );
