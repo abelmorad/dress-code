@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { features } from "process";
 
 function FeaturedCard() {
   const [data, setData] = useState<any[]>([]);
@@ -8,12 +9,12 @@ function FeaturedCard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:1337/api/products?populate=*", {
+        const res = await axios.get("http://localhost:1337/api/products?populate=*&[filters][type][$eq]=featured", {
           headers: {
             Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
           },
         });
-        setData(res.data.data.slice(0, 4));
+        setData(res.data.data);
         console.log(res.data.data);
       } catch (err) {
         console.log(err);
@@ -25,7 +26,7 @@ function FeaturedCard() {
   return (
     <>
       {data.map((data) => (
-        <Link to={`/product/${data.id}`} key={data.id}>
+        <Link to={`/product/${data.id}`} key={data.id} type={data.attributes.type}>
           <div className="flex flex-col h-full outline-1 outline outline-gray-400">
             <img className="h-96 w-screen object-cover" src={"http://localhost:1337" + data.attributes.image.data.attributes.url} />
             <p
