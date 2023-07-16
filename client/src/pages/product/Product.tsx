@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -9,23 +10,36 @@ function Product() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  const img = [
-    "https://images.pexels.com/photos/3686769/pexels-photo-3686769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/1113554/pexels-photo-1113554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  ];
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:1337/api/products?populate=*&", {
+          headers: {
+            Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
+          },
+        });
+        setData(res.data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <section className="grid gap-8 mx-10 py-20 product-section">
       <div className="flex flex-col gap-6">
         <img
           className="h-48 w-48 object-cover cursor-pointer"
-          src={img[0]}
+          src=""
           alt=""
           onClick={() => setSelectedImage(0)}
         />
         <img
           className="h-48 w-48 object-cover"
-          src={img[1]}
+          src=""
           alt=""
           onClick={() => setSelectedImage(1)}
         />
@@ -34,7 +48,7 @@ function Product() {
         <img
           className="object-cover"
           style={{ width: "100%", height: "650px" }}
-          src={img[selectedImage]}
+          src=""
           alt=""
         />
       </div>
