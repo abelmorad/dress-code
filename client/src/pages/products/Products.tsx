@@ -2,12 +2,30 @@ import { useParams } from "react-router-dom";
 import banner from "../../../public/misc/categorybanner.jpg";
 import { useState } from "react";
 import AllProducts from "./AllProducts";
+import useFetch from "../../hooks/useFetch";
 
 function Products() {
   const categoryId = useParams().id;
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState<string>("");
+  const [sort, setSort] = useState("");
+  const [selectedSubCategories, setSelectedSubCategories] = useState<any[]>([]);
 
+  const { data, loading, error } = useFetch(
+    `/sub-categories?[filters][category][id][$eq]=${categoryId}`
+  );
+
+  const handleChange = (e: any) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedSubCategories(
+      isChecked
+        ? [...selectedSubCategories, value]
+        : selectedSubCategories.filter((item) => item !== value)
+    );
+  };
+
+  console.log(selectedSubCategories)
 
   return (
     <section className="grid grid-flow-col py-20 mx-16 gap-20">
@@ -15,26 +33,21 @@ function Products() {
         <div className="mb-3">
           <h2 className="mb-3">Product Categories</h2>
           <div className="flex flex-col">
-            <div className="flex gap-2">
-              <input type="checkbox" name="hat" id="1" value={1} />
-              <label htmlFor="1">Hat</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="tshirt" id="2" value={2} />
-              <label htmlFor="2">Tee</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="shoes" id="3" value={3} />
-              <label htmlFor="3">Shoes</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="skirt" id="4" value={4} />
-              <label htmlFor="4">Skirt</label>
-            </div>
-            <div className="flex gap-2">
-              <input type="checkbox" name="jacket" id="5" value={5} />
-              <label htmlFor="5">Jacket</label>
-            </div>
+            {error
+              ? "Something went wrong"
+              : loading
+              ? "loading"
+              : data.map((data) => (
+                  <div key={data.id} className="flex gap-2">
+                    <input
+                      type="checkbox"
+                      id={data.id}
+                      value={data.id}
+                      onChange={handleChange}
+                    />
+                    <label htmlFor={data.id}>{data.attributes.title}</label>
+                  </div>
+                ))}
           </div>
         </div>
         <div className="flex flex-col mb-3">
@@ -79,16 +92,21 @@ function Products() {
         </div>
       </div>
       <div className="flex flex-col">
-      <div className="flex flex-col mb-8">
-        <img
-          className="h-60 w-screen object-cover"
-          src={banner}
-          alt="category banner"
-        />
-      </div>
-      <div className="grid grid-cols-4 place-content-center gap-8">
-        <AllProducts />
-      </div>
+        <div className="flex flex-col mb-8">
+          <img
+            className="h-60 w-screen object-cover"
+            src={banner}
+            alt="category banner"
+          />
+        </div>
+        <div className="grid grid-cols-4 place-content-center gap-8">
+          <AllProducts
+            categoryId={categoryId}
+            maxPrice={maxPrice}
+            sort={sort}
+            selectedSubCat={selectedSubCategories}
+          />
+        </div>
       </div>
     </section>
   );
