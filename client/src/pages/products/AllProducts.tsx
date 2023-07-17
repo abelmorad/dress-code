@@ -2,22 +2,21 @@ import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 
 function AllProducts({
-  selectedSubCat,
+  subCats,
   maxPrice,
   sort,
   categoryId,
 }: {
-  selectedSubCat: any[];
+  subCats: any[];
   maxPrice: number;
   sort: string;
   categoryId: any;
 }) {
   const { data, loading, error } = useFetch(
-    `/products?populate=*&${selectedSubCat.map(
-      (data) => `&[filters][sub_categories][id][$eq]=${data}`
+    `/products?populate=*${subCats.map(
+      (item) => `&filters[sub_categories][id][$in]=${item}&`
     )}`
   );
-  console.log(selectedSubCat);
   return (
     <>
       {error
@@ -54,7 +53,7 @@ function AllProducts({
                       {data.attributes.oldPrice} <span>USD</span>
                     </p>
                     <p className="font-semibold">
-                      {data.attributes.currentPrice} <span>USD</span>
+                      {data.attributes.price} <span>USD</span>
                     </p>
                   </div>
                 </div>
