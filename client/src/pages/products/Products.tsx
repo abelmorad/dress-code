@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
 import banner from "../../../public/misc/categorybanner.jpg";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import AllProducts from "./AllProducts";
 import useFetch from "../../hooks/useFetch";
 
@@ -8,24 +8,25 @@ function Products() {
   const categoryId = useParams().id;
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState("");
-  const [selectedSubCategories, setSelectedSubCategories] = useState<any[]>([]);
+  const [selectedSubCats, setSelectedSubCats] = useState<any[]>([]);
 
   const { data, loading, error } = useFetch(
-    `/sub-categories?[filters][category][id][$eq]=${categoryId}`
+    `/sub-categories?filter[categories][id][$eq]=${categoryId}`
   );
 
   const handleChange = (e: any) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
 
-    setSelectedSubCategories(
+    setSelectedSubCats(
       isChecked
-        ? [...selectedSubCategories, value]
-        : selectedSubCategories.filter((item) => item !== value)
+        ? [...selectedSubCats, value]
+        : selectedSubCats.filter((data) => data !== value)
     );
   };
-
-  console.log(selectedSubCategories)
+  // console.log(categoryId);
+  // console.log(selectedSubCats);
+  // console.log(data);
 
   return (
     <section className="grid grid-flow-col py-20 mx-16 gap-20">
@@ -104,7 +105,7 @@ function Products() {
             categoryId={categoryId}
             maxPrice={maxPrice}
             sort={sort}
-            selectedSubCat={selectedSubCategories}
+            subCats={selectedSubCats}
           />
         </div>
       </div>
