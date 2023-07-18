@@ -9,16 +9,13 @@ import FeaturedSection from "../../components/Sections/FeaturedSection";
 import CategorySection from "../../components/Sections/CategorySection";
 import TrendingSection from "../../components/Sections/TrendingSection";
 
-function Home() {
+import useFetch from "../../hooks/useFetch";
 
+function Home() {
   function HeroSlider() {
-    const data = [
-      "https://burst.shopifycdn.com/photos/man-puts-his-hand-inside-his-jacket.jpg?width=1024&format=pjpg&exif=1&iptc=1",
-      "https://burst.shopifycdn.com/photos/casual-man-sits-on-rock.jpg?width=1024&format=pjpg&exif=1&iptc=1",
-      "https://burst.shopifycdn.com/photos/smiling-man-in-formalwear.jpg?width=1024&format=pjpg&exif=1&iptc=1",
-      "https://burst.shopifycdn.com/photos/autumn-fashion-on-man-with-glasses.jpg?width=1024&format=pjpg&exif=1&iptc=1",
-      "https://burst.shopifycdn.com/photos/skateboarder-rides-past.jpg?width=1024&format=pjpg&exif=1&iptc=1",
-    ];
+    const { data, loading, error } = useFetch(`/categories?populate=*&`);
+
+    console.log(data);
 
     return (
       <Swiper
@@ -28,15 +25,22 @@ function Home() {
         pagination
         effect={"fade"}
       >
-        {data.map((data) => (
-          <SwiperSlide className="flex place-content-center">
-            <img
-              className="w-screen h-screen object-cover"
-              src={data}
-              alt="mens"
-            />
-          </SwiperSlide>
-        ))}
+        {error
+          ? "Something went wrong"
+          : loading
+          ? "loading"
+          : data.map((data) => (
+              <SwiperSlide className="flex place-content-center" key={data.id}>
+                <img
+                  className="w-screen h-screen object-cover"
+                  src={
+                    "http://localhost:1337" +
+                    data.attributes.image.data.attributes.url
+                  }
+                  alt={data.attributes.title}
+                />
+              </SwiperSlide>
+            ))}
       </Swiper>
     );
   }
@@ -46,7 +50,7 @@ function Home() {
         <HeroSlider />
       </section>
       <section className="flex flex-col mb-20 mx-36">
-        <FeaturedSection/>
+        <FeaturedSection />
       </section>
       <section className="flex flex-col mb-20">
         <CategorySection />
