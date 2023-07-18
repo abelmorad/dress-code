@@ -15,7 +15,7 @@ function AllProducts({
   const { data, loading, error } = useFetch(
     `/products?populate=*${subCats.map(
       (item) => `&filters[sub_categories][id][$in]=${item}&`
-    )}`
+    )}&[filters][price][$lte]=${maxPrice}`
   );
   return (
     <>
@@ -49,7 +49,14 @@ function AllProducts({
                     {data.attributes.title}
                   </p>
                   <div className="flex flex-col">
-                    <p className="text-gray-500 line-through">
+                    <p
+                      className="text-gray-500 line-through"
+                      style={
+                        data.attributes.oldPrice === null
+                          ? { display: "none" }
+                          : { display: "block" }
+                      }
+                    >
                       {data.attributes.oldPrice} <span>USD</span>
                     </p>
                     <p className="font-semibold">
