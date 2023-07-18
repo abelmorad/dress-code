@@ -15,7 +15,7 @@ function AllProducts({
   const { data, loading, error } = useFetch(
     `/products?populate=*${subCats.map(
       (item) => `&filters[sub_categories][id][$in]=${item}&`
-    )}&[filters][price][$lte]=${maxPrice}`
+    )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
   );
   return (
     <>
