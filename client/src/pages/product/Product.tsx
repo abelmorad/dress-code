@@ -54,12 +54,10 @@ function Product() {
             />
           </div>
           <div className="flex flex-col">
-            <h1 className="mb-3">Lorem ipsum dolor sit amet.</h1>
-            <p className="text-2xl text-blue-500 mb-3">$10.9</p>
+            <h1 className="mb-3">{data?.attributes?.title}</h1>
+            <p className="text-2xl text-blue-500 mb-3">{data?.attributes?.price * quantity} USD</p>
             <p className="mb-20">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quisquam, architecto quidem molestias dolore harum vero ducimus
-              nulla libero recusandae! Delectus.
+              {data?.attributes?.description}
             </p>
             <div className="flex items-center text-xl mb-5">
               <button
