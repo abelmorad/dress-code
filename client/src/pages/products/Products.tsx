@@ -6,7 +6,7 @@ import useFetch from "../../hooks/useFetch";
 
 function Products() {
   const categoryId = useParams().id;
-  const [maxPrice, setMaxPrice] = useState(1000);
+  const [maxPrice, setMaxPrice] = useState<number>(15000);
   const [sort, setSort] = useState("");
   const [selectedSubCats, setSelectedSubCats] = useState<any[]>([]);
 
@@ -24,9 +24,6 @@ function Products() {
         : selectedSubCats.filter((data) => data !== value)
     );
   };
-  // console.log(categoryId);
-  // console.log(selectedSubCats);
-  // console.log(data);
 
   return (
     <section className="grid grid-flow-col py-20 mx-16 gap-20">
@@ -59,7 +56,7 @@ function Products() {
               <input
                 type="range"
                 min={0}
-                max={1000}
+                max={15000}
                 onChange={(e) => setMaxPrice(parseInt(e.target.value))}
               />
               <span>{maxPrice}</span>
