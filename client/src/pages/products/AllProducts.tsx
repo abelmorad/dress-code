@@ -5,12 +5,10 @@ function AllProducts({
   subCats,
   maxPrice,
   sort,
-  categoryId,
 }: {
   subCats: any[];
   maxPrice: number;
   sort: string;
-  categoryId: any;
 }) {
   const { data, loading, error } = useFetch(
     `/products?populate=*${subCats.map(

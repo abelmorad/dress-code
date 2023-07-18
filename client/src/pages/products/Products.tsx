@@ -7,7 +7,7 @@ import useFetch from "../../hooks/useFetch";
 function Products() {
   const categoryId = useParams().id;
   const [maxPrice, setMaxPrice] = useState<number>(15000);
-  const [sort, setSort] = useState("");
+  const [sort, setSort] = useState<string>("");
   const [selectedSubCats, setSelectedSubCats] = useState<any[]>([]);
 
   const { data, loading, error } = useFetch(
@@ -99,7 +99,6 @@ function Products() {
         </div>
         <div className="grid grid-cols-4 place-content-center gap-8">
           <AllProducts
-            categoryId={categoryId}
             maxPrice={maxPrice}
             sort={sort}
             subCats={selectedSubCats}
