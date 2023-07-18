@@ -69,22 +69,22 @@ function Products() {
             <div className="flex gap-2">
               <input
                 type="radio"
-                id="asc"
-                value="asc"
-                name="price"
-                onChange={() => setSort("asc")}
-              />
-              <label htmlFor="asc">Price (Highest First)</label>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="radio"
                 id="desc"
                 value="desc"
                 name="price"
                 onChange={() => setSort("desc")}
               />
-              <label htmlFor="desc">Price (Lowest First)</label>
+              <label htmlFor="desc">Price (Highest First)</label>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="radio"
+                id="asc"
+                value="asc"
+                name="price"
+                onChange={() => setSort("asc")}
+              />
+              <label htmlFor="asc">Price (Lowest First)</label>
             </div>
           </div>
         </div>
