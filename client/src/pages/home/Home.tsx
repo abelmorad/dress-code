@@ -15,8 +15,6 @@ function Home() {
   function HeroSlider() {
     const { data, loading, error } = useFetch(`/categories?populate=*&`);
 
-    console.log(data);
-
     return (
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
