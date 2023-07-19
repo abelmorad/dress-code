@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 function Cart() {
   const products = useSelector((state:any) => state.cart.products);
 
-  function subTotal() {
+  function Total() {
     let total = 0;
     products.forEach((data:any) => (total += data.quantity * data.price));
 
@@ -42,8 +42,8 @@ function Cart() {
         </>
       ))}
       <div className="flex justify-between font-medium my-3">
-        <p>SUBTOTAL</p>
-        <p>{subTotal()} USD</p>
+        <p>TOTAL</p>
+        <p>{Total()} USD</p>
       </div>
       <button className="flex place-content-center items-center uppercase bg-blue-500 text-white w-64 py-1 font-medium mb-3">
         proceed to checkout
