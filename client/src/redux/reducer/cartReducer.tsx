@@ -1,13 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store/store";
+import { createSlice } from "@reduxjs/toolkit";
 
-// Define a type for the slice state
-interface cartState {
-  products: any[];
-}
-
-// Define the initial state using that type
-const initialState: cartState = {
+const initialState = {
   products: [],
 };
 
@@ -15,16 +8,15 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<any>) => {
-      const item = state.products.find((data) => data.id === action.payload.id);
+    addToCart: (state, action) => {
+      const item = state.products.find((item) => item.id === action.payload.id);
+      
       item
-        ? (item.quantity += action.payload.quantity)
-        : state.push(action.payload);
+        ? item.quantity += action.payload.quantity
+        : state.products.push(action.payload);
     },
-    removeItem: (state, action: PayloadAction<number>) => {
-      state.products = state.products.filter(
-        (data) => data.id !== action.payload
-      );
+    removeItem: (state, action) => {
+      state.products = state.products.filter((item)=> item.id !== action.payload)
     },
     resetCart: (state) => {
       state.products = [];
@@ -32,9 +24,7 @@ export const cartSlice = createSlice({
   },
 });
 
+// Action creators are generated for each case reducer function
 export const { addToCart, removeItem, resetCart } = cartSlice.actions;
-
-// Other code such as selectors can use the imported `RootState` type
-export const selectCart = (state: RootState) => state.cart.value;
 
 export default cartSlice.reducer;
