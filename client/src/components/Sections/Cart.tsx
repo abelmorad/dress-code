@@ -18,7 +18,7 @@ function Cart() {
         <>
           <div
             key={data.id}
-            className="flex place-content-center items-start justify-between mb-3"
+            className="grid grid-flow-col place-content-center items-start justify-between mb-3"
           >
             <img
               className="h-36 w-24 object-cover mr-5"
@@ -28,7 +28,7 @@ function Cart() {
             <div className="flex flex-col mr-2">
               <h2 className="mb-5">{data.title}</h2>
               <p className="mb-2 text-gray-600">
-                {data.description.substring(0, 90)}
+                {data.description.substring(0, 80)}...
               </p>
               <div className="flex justify-between">
                 <p className="text-blue-500">
