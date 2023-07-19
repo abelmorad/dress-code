@@ -6,6 +6,8 @@ import CompareOutlinedIcon from "@mui/icons-material/CompareOutlined";
 import { Link, useParams } from "react-router-dom";
 
 import useFetch from "../../hooks/useFetch";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/reducer/cartReducer";
 
 function Product() {
   const id = useParams().id;
@@ -13,6 +15,7 @@ function Product() {
   const [quantity, setQuantity] = useState(1);
 
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+  const dispatch = useDispatch();
 
   return (
     <section className="grid gap-8 mx-10 py-20 product-section">
@@ -55,7 +58,7 @@ function Product() {
           </div>
           <div className="flex flex-col">
             <h1 className="mb-3">{data?.attributes?.title}</h1>
-            <p className="text-2xl text-blue-500 mb-3">{data?.attributes?.price * quantity} USD</p>
+            <p className="text-2xl text-blue-500 mb-3">{data?.attributes?.price} USD</p>
             <p className="mb-20">
               {data?.attributes?.description}
             </p>
@@ -78,7 +81,14 @@ function Product() {
                 +
               </button>
             </div>
-            <button className="flex gap-3 items-center place-content-center h-10 w-60 bg-blue-500 text-white font-medium mb-3">
+            <button className="flex gap-3 items-center place-content-center h-10 w-60 bg-blue-500 text-white font-medium mb-3" onClick={() => dispatch(addToCart({
+              id: data.id,
+              title: data.attributes.title,
+              description: data.attributes.description,
+              price: data.attributes.price,
+              image: data.attributes.image.data.attributes.url,
+              quantity
+            }))}>
               <AddShoppingCartOutlinedIcon />
               ADD TO CART
             </button>
