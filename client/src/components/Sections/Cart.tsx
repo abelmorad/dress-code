@@ -1,6 +1,6 @@
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem } from "../../redux/reducer/cartReducer";
+import { removeItem, resetCart } from "../../redux/reducer/cartReducer";
 
 function Cart() {
   const products = useSelector((state:any) => state.cart.products);
@@ -51,7 +51,7 @@ function Cart() {
       <button className="flex place-content-center items-center uppercase bg-blue-500 text-white w-64 py-1 font-medium mb-3">
         proceed to checkout
       </button>
-      <p className="text-red-600">Reset Cart</p>{" "}
+      <p className="text-red-600 cursor-pointer" onClick={() => dispatch(resetCart())}>Reset Cart</p>{" "}
     </section>
   );
 }
