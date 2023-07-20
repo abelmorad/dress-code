@@ -43,7 +43,7 @@ function Home() {
   }
   return (
     <section className="flex flex-col">
-      <section className="grid grid-flow-col my-24 grid-cols-2 overflow-hidden">
+      <section className="grid grid-flow-col my-24 grid-cols-2 overflow-hidden gap-12">
         <div className="flex flex-col place-content-center pl-28">
           <h1 className="text-7xl font-extrabold leading-snug mb-3">
             Look Good, Feel Good, Dress Good,{" "}
