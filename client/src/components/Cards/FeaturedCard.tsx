@@ -18,7 +18,7 @@ function FeaturedCard() {
               key={data.id}
               type={data.attributes.type}
             >
-              <div className="flex flex-col justify-between h-full outline-1 outline outline-gray-400">
+              <div className="flex flex-col justify-between h-full outline-1 outline outline-gray-400 hover:scale-105">
                 <img
                   className="h-96 w-screen object-cover"
                   src={
