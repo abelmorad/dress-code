@@ -10,9 +10,12 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import { useState } from "react";
 
 import Cart from "./Cart";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 function Navbar() {
+  const items = useSelector((state:any) => state.cart.products);
   const [openCart, setOpenCart] = useState(false);
+  
   return (
     <nav className="grid grid-cols-3 px-10 py-3 items-center fixed w-screen bg-white z-10">
       <section className="flex gap-4">
@@ -61,7 +64,7 @@ function Navbar() {
           <div className="flex" onClick={() => setOpenCart(!openCart)}>
             <ShoppingCartOutlinedIcon />
             <span className="flex text-sm bg-blue-500 h-5 w-5 items-center place-content-center rounded-full absolute ml-3.5 top-0 mt-2 text-white font-semibold">
-              0
+              {items.length}
             </span>
           </div>
         </div>
