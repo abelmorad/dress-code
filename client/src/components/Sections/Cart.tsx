@@ -1,5 +1,6 @@
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeItem } from "../../redux/reducer/cartReducer";
 
 function Cart() {
   const products = useSelector((state:any) => state.cart.products);
@@ -10,6 +11,8 @@ function Cart() {
 
     return total.toFixed(2);
   };
+
+  const dispatch = useDispatch();
 
   return (
     <section className="flex flex-col absolute bg-white mt-3 pb-3 right-0 pl-5 pr-12 -z-10 w-1/3 shadow-2xl">
@@ -35,7 +38,7 @@ function Cart() {
                   {data.quantity} x {data.price}
                 </p>
                 <p className="text-blue-500">{data.quantity * data.price} USD</p>
-                <DeleteOutlineOutlinedIcon className="text-red-600" />
+                <DeleteOutlineOutlinedIcon className="text-red-600 cursor-pointer" onClick={() => dispatch(removeItem(data.id))} />
               </div>
             </div>
           </div>
