@@ -18,9 +18,8 @@ function Cart() {
     <section className="flex flex-col absolute bg-white mt-10 pb-3 right-0 pl-5 pr-12 -z-10 w-1/3 shadow-2xl">
       <h1 className="my-5">Products in your Cart</h1>
       {products.map((data: any) => (
-        <>
+        <div key={data.id}>
           <div
-            key={data.id}
             className="grid grid-flow-col place-content-center items-start justify-between mb-3"
           >
             <img
@@ -42,7 +41,7 @@ function Cart() {
               </div>
             </div>
           </div>
-        </>
+        </div>
       ))}
       <div className="flex justify-between font-medium my-3">
         <p>TOTAL</p>
