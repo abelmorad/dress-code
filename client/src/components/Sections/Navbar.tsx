@@ -22,7 +22,6 @@ function Navbar() {
     const handleOpen = (e: any) => {
       if (!openRef.current.contains(e.target)) {
         setOpen(false);
-        console.log(openRef.current);
       }
     };
 
