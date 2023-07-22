@@ -15,7 +15,7 @@ function Cart() {
   const dispatch = useDispatch();
 
   return (
-    <section className="flex flex-col absolute bg-white mt-3 pb-3 right-0 pl-5 pr-12 -z-10 w-1/3 shadow-2xl">
+    <section className="flex flex-col absolute bg-white mt-10 pb-3 right-0 pl-5 pr-12 -z-10 w-1/3 shadow-2xl">
       <h1 className="my-5">Products in your Cart</h1>
       {products.map((data: any) => (
         <>

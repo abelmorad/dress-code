@@ -30,7 +30,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="grid grid-cols-3 px-10 py-3 items-center fixed w-screen bg-white z-10">
+    <nav className="grid grid-cols-3 px-10 py-3 items-center fixed w-screen bg-gray-100 z-10">
       <section className="flex gap-4">
         <div className="flex items-center cursor-pointer">
           <img className="h-5" src={usEng} alt="us-en" />
